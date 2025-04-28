@@ -34,6 +34,22 @@ ORDER BY no_of_orders;
 -- to send orders to in terms of freight and the number
 -- of orders sent to those countries.
 
+SELECT shipcountry, avg(freight) as average_freight,
+    count(orderid) as no_of_orders
+from salesorder
+GROUP BY shipCountry
+ORDER BY average_freight ASC
+limit 3;
+
+-- FILTERING AGGREGATED OPERATIONS
+
+-- return the countries and number of orders sold
+-- in countries where we've sent atleast 70 orders.
+
+select shipcountry, count(orderid) as no_of_orders
+from salesorder
+GROUP BY shipCountry
+HAVING no_of_orders >=70;
 
 
 
