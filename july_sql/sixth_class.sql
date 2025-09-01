@@ -98,3 +98,6 @@ select orderdate
 from orders
 where shipcountry = "germany"
 
+
+
+
