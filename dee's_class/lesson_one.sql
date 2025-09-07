@@ -32,3 +32,27 @@ primary key(orderid),
 foreign key (branch_id) references branch (branch_id),
 foreign key (staff_id) references staff (staff_id)
 );
+
+
+-- LESSON ONE (SELECT, FROM, WHERE) --
+
+-- 1. write a query that returns the firstname and lastname
+-- of our employees.
+select firstname, lastname
+from Employees;
+
+-- 2. write a query that returns all the columns in
+-- products table.
+select *
+from Products;
+
+-- 3. write a query that returns the firstname, lastname
+-- and title of employees based in the UK.
+select firstname, lastname, title, Country
+from Employees
+where Country = "UK";
+
+
+
+
+
