@@ -9,22 +9,23 @@
             "server": "localhost",
             "port": 3306,
             "driver": "MySQL",
-            "name": "sql_test",
-            "database": "northwind",
-            "username": "root"
+            "name": "sql_conn",
+            "username": "root",
+            "database": "northwind"
         },
         {
             "mysqlOptions": {
                 "authProtocol": "default",
                 "enableSsl": "Disabled"
             },
+            "ssh": "Disabled",
             "previewLimit": 50,
             "server": "localhost",
             "port": 3306,
             "driver": "MySQL",
-            "name": "sql_conn",
-            "username": "root",
-            "database": "northwind"
+            "name": "sql_test",
+            "database": "sakila",
+            "username": "root"
         }
     ]
 }
