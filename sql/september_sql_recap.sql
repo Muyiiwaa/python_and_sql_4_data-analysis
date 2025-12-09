@@ -37,7 +37,46 @@ where no_of_orders > 100;
 -- exercise
 
 -- return the shipcountry, city and freight cost
--- for countries with freight above average.
+-- for orders with freight above average.
+
+-- write a query that returns the customerid,
+-- name and city of customers that have never
+-- patronized us.
+
+with id_of_interest as (
+    select distinct customerid
+    from orders
+)
+select companyname, city, customerid
+from customers
+where customerid not in (
+    select customerid
+    from id_of_interest
+);
+
+-- return the number of customers and suppliers
+-- that we have in each country.
+
+with customer_cte as (
+select country, count(customerid) as no_of_customers
+from customers
+GROUP BY Country),
+supplier_cte as (
+    select country, count(supplierid) as no_of_suppliers
+    from suppliers
+    GROUP BY Country
+)
+select a.country, a.no_of_customers, b.no_of_suppliers
+from customer_cte as a
+left join supplier_cte as b on b.country = a.country
+UNION
+select b.country, a.no_of_customers, b.no_of_suppliers
+from customer_cte as a
+right join supplier_cte as b on b.country = a.country;
+
+
+
+
 
 
 
